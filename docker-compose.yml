@@ -18,13 +18,16 @@ services:
     volumes:
       - .:/usr/src/
     working_dir: /usr/src/
-    command: sleep infinity
+    command: bash -c "cd source && cargo run"
+    environment:
+      - ROCKET_ADDRESS=0.0.0.0
     links:
       - db
     tty: true
     networks:
       - rust_network
-
+    ports:
+      - 8090:8000
 networks:
   rust_network:
     driver: bridge
