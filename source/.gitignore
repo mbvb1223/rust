@@ -1,0 +1,25 @@
+# Target directory (compiled binaries)
+target/
+
+# Cargo lock file (if you're writing a library)
+Cargo.lock
+
+# Build artifacts
+**/*.rlib
+
+# Generated files
+*.rs.bk
+
+# Logs and debugging files
+*.log
+
+# IDE & Editor settings
+.idea/
+.vscode/
+*.iml
+
+# Rust toolchain files
+rust-toolchain
+rust-toolchain.toml
+
+# Dependencies (if using Ca

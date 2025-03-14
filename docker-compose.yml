@@ -1,11 +1,15 @@
-version: "3.8"
-
 services:
   rust:
     image: rust:latest
     container_name: rust_dev
     volumes:
       - .:/usr/src/myapp
-    working_dir: /usr/src/myapp
+    working_dir: /usr/src/myapp/source
     command: sleep infinity
     tty: true
+    networks:
+      - rust_network
+
+networks:
+  rust_network:
+    driver: bridge
