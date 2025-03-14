@@ -1,11 +1,26 @@
 services:
+  db:
+    image: mariadb:11.3
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rustdb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - "3356:3306"
+    networks:
+      - rust_network
+
   rust:
     image: rust:latest
-    container_name: rust_dev
     volumes:
-      - .:/usr/src/myapp
-    working_dir: /usr/src/myapp/source
+      - .:/usr/src/
+    working_dir: /usr/src/
     command: sleep infinity
+    links:
+      - db
     tty: true
     networks:
       - rust_network
