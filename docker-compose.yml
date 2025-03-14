@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  rust:
+    image: rust:latest
+    container_name: rust_dev
+    volumes:
+      - .:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    command: sleep infinity
+    tty: true
